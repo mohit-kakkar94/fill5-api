@@ -11,7 +11,14 @@ function shuffleArray(array) {
   return array;
 }
 
-const data = fs.readFileSync(`${__dirname}/listWords.txt`, "utf-8");
+let location;
+
+if (process.env.NODE_ENV === "development") {
+  location = `${__dirname}/listWords.txt`;
+} else if (process.env.NODE_ENV === "production") {
+  location = `/etc/secrets/listWords.txt`;
+}
+data = fs.readFileSync(location, "utf-8");
 let wordList = data.split("\n").map((word) => word.trim());
 wordList = shuffleArray(wordList);
 

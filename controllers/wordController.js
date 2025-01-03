@@ -45,7 +45,7 @@ exports.getWordOfTheDay = (req, res) => {
   //2. Get number of days since Unix Epoch (12am, Jan 1, 1970) for the day when the website went live
   // This is needed to compute the offset which needs to be subtracted from daysSinceEpoch to start serving words
   // from beginning of the list.
-  const launchDate = new Date("2025-01-02"); // Replace with your launch date
+  const launchDate = new Date("2025-01-04");
   const X = Math.floor(launchDate.getTime() / 86400000);
 
   //3. Compute word index
